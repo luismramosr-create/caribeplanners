@@ -1,0 +1,261 @@
+/* ============================================================
+   CARIBEPLANNERS — Estilos del Panel del Equipo
+   Complementa styles.css
+   ============================================================ */
+
+/* ============ KANBAN ============ */
+.kanban{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  align-items:start;
+}
+.kanban-col{
+  background:var(--bg-alt);
+  border-radius:var(--radius-lg);
+  padding:14px;
+  min-height:200px;
+  transition:background .2s,border .2s;
+  border:2px solid transparent;
+}
+.kanban-col.drag-over{
+  background:var(--primary-light);
+  border-color:var(--primary-dark);
+  border-style:dashed;
+}
+.kanban-col-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+  padding:0 4px;
+}
+.kanban-col-head h3{
+  font-family:var(--font-body);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--text-sec);
+}
+.kanban-col-head .count{
+  background:var(--white);
+  padding:2px 8px;
+  border-radius:var(--radius-pill);
+  font-size:11px;
+  font-weight:600;
+  color:var(--text-sec);
+}
+.kanban-cards{display:flex;flex-direction:column;gap:10px}
+
+/* ============ CARD DE PAREJA (kanban) ============ */
+.p-card{
+  background:var(--white);
+  border-radius:var(--radius-md);
+  padding:16px;
+  border:1px solid var(--border);
+  cursor:grab;
+  transition:transform .2s,box-shadow .2s;
+  position:relative;
+}
+.p-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.p-card:active{cursor:grabbing}
+.p-card.dragging{opacity:.5;transform:rotate(2deg)}
+.p-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:8px}
+.p-card-title{
+  font-family:var(--font-display);
+  font-size:16px;
+  font-weight:600;
+  letter-spacing:-.01em;
+  line-height:1.25;
+}
+.p-card-date{
+  font-size:12px;
+  color:var(--text-sec);
+  display:flex;
+  align-items:center;
+  gap:5px;
+  margin-bottom:12px;
+}
+.p-card-date svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.8;fill:none}
+.p-card-date .days-left{
+  margin-left:auto;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  padding:2px 8px;
+  border-radius:var(--radius-pill);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.p-card-date .days-left.urgent{background:#FFEBE9;color:var(--danger)}
+.p-card-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
+  margin-bottom:8px;
+  color:var(--text-sec);
+}
+.p-card-row strong{color:var(--text);font-weight:600}
+.p-card-row .label{display:flex;align-items:center;gap:5px}
+.p-card-row .label svg{width:12px;height:12px;stroke:currentColor;stroke-width:1.8;fill:none}
+.p-card-planner{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:11px;
+  color:var(--text-ter);
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid var(--border);
+}
+.p-card-planner .avatar{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:var(--primary);
+  color:var(--white);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+.priority-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.priority-dot.alta{background:var(--danger)}
+.priority-dot.media{background:var(--warning)}
+.priority-dot.baja{background:var(--success)}
+
+/* ============ FILTROS ============ */
+.filter-chips{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ============ MÉTRICAS DEL TABLERO ============ */
+.metric-card{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  padding:20px;
+}
+.metric-card .l{font-size:11px;color:var(--text-ter);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;font-weight:600}
+.metric-card .v{font-size:28px;font-weight:700;letter-spacing:-.02em;font-family:var(--font-display)}
+.metric-card .v.accent{color:var(--primary-dark)}
+
+/* ============ TABLA DE PAREJAS ============ */
+.pareja-row{cursor:pointer;transition:background .15s}
+.pareja-row:hover td{background:var(--bg)}
+
+/* ============ ESTADÍSTICAS ============ */
+.stat-bar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:16px;
+  font-size:13px;
+}
+.stat-bar .stat-bar-label{min-width:120px;color:var(--text-sec);font-weight:500}
+.stat-bar .stat-bar-track{
+  flex:1;
+  height:10px;
+  background:var(--bg-alt);
+  border-radius:var(--radius-pill);
+  overflow:hidden;
+}
+.stat-bar .stat-bar-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary),var(--primary-dark));
+  border-radius:var(--radius-pill);
+  transition:width .6s var(--ease);
+}
+.stat-bar .stat-bar-value{min-width:60px;text-align:right;font-weight:600;color:var(--text)}
+
+/* ============ EQUIPO ============ */
+.team-member{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 0;
+  border-bottom:1px solid var(--border);
+}
+.team-member:last-child{border-bottom:none}
+.team-avatar{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:var(--font-display);
+  font-size:17px;
+  font-weight:600;
+  flex-shrink:0;
+}
+.team-info{flex:1;min-width:0}
+.team-info .n{font-size:14px;font-weight:600;margin-bottom:2px}
+.team-info .e{font-size:12px;color:var(--text-ter)}
+.team-role{
+  display:inline-block;
+  margin-top:4px;
+  font-size:11px;
+  padding:2px 8px;
+  border-radius:var(--radius-pill);
+  font-weight:600;
+}
+.team-role.admin{background:#FFEBE9;color:var(--danger)}
+.team-role.planner{background:var(--primary-light);color:var(--primary-dark)}
+.team-role.coordinador{background:#E1F0FF;color:#0052B3}
+.team-actions{display:flex;gap:6px}
+
+/* ============ AGENDA ============ */
+.agenda-item{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:16px 0;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:background .15s;
+}
+.agenda-item:hover{background:var(--bg)}
+.agenda-item:last-child{border-bottom:none}
+.agenda-date{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:60px;
+  height:60px;
+  background:var(--primary-light);
+  border-radius:var(--radius-md);
+  flex-shrink:0;
+}
+.agenda-date .day{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--primary-dark);line-height:1}
+.agenda-date .month{font-size:10px;color:var(--primary-dark);text-transform:uppercase;font-weight:600;letter-spacing:.04em;margin-top:2px}
+.agenda-info{flex:1;min-width:0}
+.agenda-info .name{font-family:var(--font-display);font-size:16px;font-weight:600;margin-bottom:2px}
+.agenda-info .place{font-size:12px;color:var(--text-sec)}
+
+/* ============ MODAL DE CONFIRMACIÓN ============ */
+.confirm-modal{
+  background:var(--white);
+  border-radius:var(--radius-xl);
+  padding:32px 28px 24px;
+  max-width:400px;
+  text-align:center;
+}
+.confirm-modal h3{font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.confirm-modal p{font-size:14px;color:var(--text-sec);margin-bottom:24px;line-height:1.5}
+.confirm-modal .confirm-actions{display:flex;gap:10px;justify-content:center}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1200px){
+  .kanban{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .kanban{grid-template-columns:1fr}
+  .metric-card .v{font-size:22px}
+  .stat-bar .stat-bar-label{min-width:80px;font-size:12px}
+}

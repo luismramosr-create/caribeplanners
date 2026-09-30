@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Panel del Equipo — CaribePlanners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- ================= LOGIN DEL EQUIPO ================= -->
+<div id="loginView" class="auth-wrap">
+  <div class="auth-card">
+    <div class="brand-logo">
+      <img src="caribeplanners.png" alt="CaribePlanners" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="fb" style="display:none">Caribe<span>Planners</span></div>
+    </div>
+    <p class="tagline">
+      <span style="display:inline-block;background:var(--primary-light);color:var(--primary-dark);font-size:11px;font-weight:600;padding:4px 12px;border-radius:var(--radius-pill);letter-spacing:.06em;text-transform:uppercase">Panel del equipo</span>
+    </p>
+
+    <div id="loginError" class="err"></div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input type="email" id="loginEmail" required placeholder="tu@caribeplanners.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="loginPassword" required placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Ingresar al panel</button>
+    </form>
+
+    <p class="hint">
+      <strong>Demo del equipo:</strong><br>
+      <code>admin@caribeplanners.com</code> · <code>admin123</code>
+      <button class="demo" type="button" onclick="quickLogin('admin@caribeplanners.com','admin123')">Ingresar</button><br>
+      <strong style="display:inline-block;margin-top:6px">Planner demo:</strong><br>
+      <code>regina@caribeplanners.com</code> · <code>equipo123</code>
+      <button class="demo" type="button" onclick="quickLogin('regina@caribeplanners.com','equipo123')">Ingresar</button>
+    </p>
+    <a class="back-link" href="index.html">← Volver al sitio público</a>
+  </div>
+</div>
+
+<!-- ================= APP SHELL ================= -->
+<div id="appView" class="shell hidden">
+
+  <!-- SIDEBAR -->
+  <aside class="side" id="sidebar">
+    <img src="caribeplanners.png" alt="CaribePlanners" class="side-logo" onerror="this.style.display='none'">
+
+    <div class="side-user">
+      <div class="n" id="sideUserName">—</div>
+      <div class="e" id="sideUserEmail" style="font-size:12px;color:var(--text-ter);word-break:break-all">—</div>
+      <span class="r" id="sideUserRole">—</span>
+    </div>
+
+    <ul class="nav-dash" id="sideNav">
+      <li>
+        <button type="button" data-view="tablero" class="active" onclick="showView('tablero')">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>
+          Tablero
+        </button>
+      </li>
+      <li>
+        <button type="button" data-view="parejas" onclick="showView('parejas')">
+          <span class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c0-2.5 1.5-4.5 4-4.5"/></svg></span>
+          Parejas
+        </button>
+      </li>
+      <li>
+        <button type="button" data-view="agenda" onclick="showView('agenda')">
+          <span class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
+          Agenda
+        </button>
+      </li>
+      <li>
+        <button type="button" data-view="proveedores" onclick="showView('proveedores')">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg></span>
+          Proveedores
+        </button>
+      </li>
+      <li>
+        <button type="button" data-view="equipo" onclick="showView('equipo')">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></span>
+          Equipo
+        </button>
+      </li>
+      <li>
+        <button type="button" data-view="estadisticas" onclick="showView('estadisticas')">
+          <span class="ico"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+          Estadísticas
+        </button>
+      </li>
+    </ul>
+
+    <button class="btn btn-secondary btn-block btn-sm" onclick="logout()" style="margin-top:16px">
+      <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+      Cerrar sesión
+    </button>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <div class="topbar">
+      <h1 id="pgTitle">—</h1>
+      <span class="user" id="topbarUser">—</span>
+    </div>
+
+    <!-- ================= VISTA: TABLERO ================= -->
+    <section id="v-tablero" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Panel del equipo</span>
+        <h1>Tablero de bodas</h1>
+        <p>Arrastra las tarjetas entre columnas para cambiar su estado</p>
+      </div>
+
+      <div class="stats" id="tableroStats"></div>
+
+      <div class="filters">
+        <div class="filter-chips" style="display:flex;gap:6px;flex-wrap:wrap" id="kanbanFilters">
+          <button class="filter-select" data-filter="all" onclick="setKanbanFilter('all',this)" style="background:var(--text);color:var(--white);border-color:var(--text)">Todas</button>
+          <button class="filter-select" data-filter="alta" onclick="setKanbanFilter('alta',this)">Prioridad alta</button>
+          <button class="filter-select" data-filter="este-mes" onclick="setKanbanFilter('este-mes',this)">Este mes</button>
+        </div>
+      </div>
+
+      <div class="kanban" id="kanban"></div>
+    </section>
+
+    <!-- ================= VISTA: PAREJAS ================= -->
+    <section id="v-parejas" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Gestión</span>
+        <h1>Parejas</h1>
+        <p>Lista completa de todas las parejas registradas</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Todas las parejas <span class="sub" id="parejasCount">0</span></h2>
+          <div class="flex gap-8">
+            <button class="btn-csv" onclick="exportParejasCSV()">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+              Exportar CSV
+            </button>
+            <button class="btn-nuevo" onclick="openNuevaPareja()">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              Nueva pareja
+            </button>
+          </div>
+        </div>
+
+        <div class="filters" style="margin-bottom:16px">
+          <select class="filter-select" id="filterParejaEstado" onchange="renderParejasList()">
+            <option value="all">Todos los estados</option>
+            <option value="nuevas">Nuevas</option>
+            <option value="en_planificacion">En planificación</option>
+            <option value="a_punto">A punto</option>
+            <option value="casadas">Casadas</option>
+          </select>
+          <select class="filter-select" id="filterParejaPrioridad" onchange="renderParejasList()">
+            <option value="all">Todas las prioridades</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+
+        <table class="tbl" id="parejasTable">
+          <thead>
+            <tr>
+              <th>Pareja</th>
+              <th>Boda</th>
+              <th>Planner</th>
+              <th>Tareas</th>
+              <th>Invitados</th>
+              <th>Presupuesto</th>
+              <th>Prioridad</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= VISTA: AGENDA ================= -->
+    <section id="v-agenda" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Calendario</span>
+        <h1>Agenda</h1>
+        <p>Bodas próximas ordenadas por fecha</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Próximos 90 días <span class="sub" id="agendaCount">0 bodas</span></h2>
+        </div>
+        <div id="agendaList"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Más adelante</h2>
+        </div>
+        <div id="agendaLater"></div>
+      </div>
+    </section>
+
+    <!-- ================= VISTA: PROVEEDORES ================= -->
+    <section id="v-proveedores" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Control de servicios</span>
+        <h1>Proveedores</h1>
+        <p>Gestión de proveedores por boda y su estado de pagos</p>
+      </div>
+
+      <div class="card" style="margin-bottom:20px">
+        <div class="field" style="margin:0;max-width:400px">
+          <label>Seleccionar boda</label>
+          <select id="proveedorWeddingSelect" class="filter-select" style="width:100%;padding:10px 14px;font-size:14px" onchange="selectWeddingForProviders(this.value)"></select>
+        </div>
+      </div>
+
+      <div id="provSummaryAdmin"></div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Lista de proveedores <span class="sub" id="provCountAdmin">0</span></h2>
+          <div class="flex gap-8">
+            <button class="btn-csv" onclick="exportProveedoresCSVAdmin()">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+              Exportar CSV
+            </button>
+          </div>
+        </div>
+
+        <div id="provListAdmin"></div>
+      </div>
+    </section>
+
+    <!-- ================= VISTA: EQUIPO ================= -->
+    <section id="v-equipo" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Personas</span>
+        <h1>Equipo CaribePlanners</h1>
+        <p>Miembros del equipo y sus permisos</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Miembros <span class="sub" id="equipoCount">0</span></h2>
+          <button class="btn-nuevo" onclick="openNuevoMiembro()">
+            <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+            Nuevo miembro
+          </button>
+        </div>
+        <div id="equipoList"></div>
+      </div>
+    </section>
+
+    <!-- ================= VISTA: ESTADÍSTICAS ================= -->
+    <section id="v-estadisticas" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Análisis</span>
+        <h1>Estadísticas</h1>
+        <p>Métricas generales del negocio</p>
+      </div>
+
+      <div class="stats" id="statsGlobales"></div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Bodas por mes</h2>
+        </div>
+        <div id="chartBodasMes" style="padding:20px 0"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Distribución de estados</h2>
+        </div>
+        <div id="chartEstados" style="padding:20px 0"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+<!-- ================= DRAWER: FICHA DE PAREJA ================= -->
+<div class="drawer-backdrop" id="parejaDrawerBackdrop" onclick="closeParejaDrawer()"></div>
+<div class="drawer" id="parejaDrawer">
+  <div class="drawer-head">
+    <div class="drawer-head-info">
+      <h2 id="pdTitle">—</h2>
+      <div class="meta">
+        <span id="pdDate">—</span>
+        <span class="dot"></span>
+        <span id="pdLocation">—</span>
+      </div>
+    </div>
+    <button class="modal-close" onclick="closeParejaDrawer()">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-tabs" id="pdTabs">
+    <button class="drawer-tab active" data-tab="resumen" onclick="switchParejaTab('resumen')">Resumen</button>
+    <button class="drawer-tab" data-tab="tareas" onclick="switchParejaTab('tareas')">Tareas</button>
+    <button class="drawer-tab" data-tab="invitados" onclick="switchParejaTab('invitados')">Invitados</button>
+    <button class="drawer-tab" data-tab="proveedores" onclick="switchParejaTab('proveedores')">Proveedores</button>
+    <button class="drawer-tab" data-tab="notas" onclick="switchParejaTab('notas')">Notas</button>
+  </div>
+
+  <div class="drawer-body" id="pdBody"></div>
+
+  <div class="drawer-footer">
+    <button class="btn btn-danger btn-sm" onclick="deleteParejaFromDrawer()">Borrar pareja</button>
+    <div style="flex:1"></div>
+    <button class="btn btn-secondary" onclick="closeParejaDrawer()">Cerrar</button>
+    <button class="btn btn-primary" onclick="saveParejaChanges()">Guardar cambios</button>
+  </div>
+</div>
+
+<!-- ================= DRAWER: FICHA DE PROVEEDOR ================= -->
+<div class="drawer-backdrop" id="provDrawerBackdrop" onclick="closeProvDrawerAdmin()"></div>
+<div class="drawer" id="provDrawerAdmin">
+  <div class="drawer-head">
+    <div class="drawer-head-info">
+      <h2 id="pvdTitleAdmin">—</h2>
+      <div class="meta">
+        <span id="pvdCatAdmin">—</span>
+        <span class="dot"></span>
+        <span id="pvdStatusAdmin">—</span>
+      </div>
+    </div>
+    <button class="modal-close" onclick="closeProvDrawerAdmin()">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="drawer-tabs" id="pvdTabsAdmin">
+    <button class="drawer-tab active" data-tab="datos" onclick="switchProvTabAdmin('datos')">Datos</button>
+    <button class="drawer-tab" data-tab="abonos" onclick="switchProvTabAdmin('abonos')">Abonos</button>
+    <button class="drawer-tab" data-tab="adjuntos" onclick="switchProvTabAdmin('adjuntos')">Comprobantes</button>
+  </div>
+
+  <div class="drawer-body" id="pvdBodyAdmin"></div>
+
+  <div class="drawer-footer">
+    <button class="btn btn-secondary" onclick="closeProvDrawerAdmin()">Cerrar</button>
+  </div>
+</div>
+
+<!-- ================= MODAL: NUEVA PAREJA ================= -->
+<div class="modal-backdrop" id="modalNuevaPareja">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Nueva pareja</h2>
+      <button class="modal-close" onclick="closeModal('modalNuevaPareja')">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="formNuevaPareja" class="form-grid cols-2">
+        <div class="field full">
+          <label>Nombre de la pareja</label>
+          <input type="text" id="npNombre" required placeholder="Ej: Ana y Carlos">
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="npEmail" required placeholder="pareja@correo.com">
+        </div>
+        <div class="field">
+          <label>Contraseña inicial</label>
+          <input type="text" id="npPassword" required value="pareja123">
+        </div>
+        <div class="field">
+          <label>Novio/a 1</label>
+          <input type="text" id="npA" placeholder="Ana">
+        </div>
+        <div class="field">
+          <label>Novio/a 2</label>
+          <input type="text" id="npB" placeholder="Carlos">
+        </div>
+        <div class="field">
+          <label>Fecha de la boda</label>
+          <input type="date" id="npFecha">
+        </div>
+        <div class="field">
+          <label>Lugar</label>
+          <input type="text" id="npLugar" placeholder="Cartagena, Colombia">
+        </div>
+        <div class="field">
+          <label>Planner asignado</label>
+          <select id="npPlanner"></select>
+        </div>
+        <div class="field">
+          <label>Prioridad</label>
+          <select id="npPrioridad">
+            <option value="baja">Baja</option>
+            <option value="media" selected>Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Estado inicial</label>
+          <select id="npEstado">
+            <option value="nuevas" selected>Nuevas</option>
+            <option value="en_planificacion">En planificación</option>
+            <option value="a_punto">A punto</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modalNuevaPareja')">Cancelar</button>
+      <button class="btn btn-primary" onclick="submitNuevaPareja()">Crear pareja</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: NUEVO MIEMBRO DEL EQUIPO ================= -->
+<div class="modal-backdrop" id="modalNuevoMiembro">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-header">
+      <h2>Nuevo miembro del equipo</h2>
+      <button class="modal-close" onclick="closeModal('modalNuevoMiembro')">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="formNuevoMiembro" class="form-grid">
+        <div class="field">
+          <label>Nombre completo</label>
+          <input type="text" id="nmNombre" required placeholder="Ej: Regina Lazzarin">
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="nmEmail" required placeholder="nombre@caribeplanners.com">
+        </div>
+        <div class="field">
+          <label>Contraseña inicial</label>
+          <input type="text" id="nmPassword" required value="equipo123">
+        </div>
+        <div class="field">
+          <label>Rol</label>
+          <select id="nmRol">
+            <option value="planner" selected>Planner — ve y edita sus bodas asignadas</option>
+            <option value="coordinador">Coordinador — solo ve y marca tareas</option>
+            <option value="admin">Admin — acceso total</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modalNuevoMiembro')">Cancelar</button>
+      <button class="btn btn-primary" onclick="submitNuevoMiembro()">Crear miembro</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: NUEVA NOTA ================= -->
+<div class="modal-backdrop" id="modalNuevaNota">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-header">
+      <h2>Nueva nota</h2>
+      <button class="modal-close" onclick="closeModal('modalNuevaNota')">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="formNuevaNota" class="form-grid">
+        <div class="field">
+          <label>Nota</label>
+          <textarea id="nnTexto" rows="5" required placeholder="Escribe una nota sobre esta boda..." style="resize:vertical"></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modalNuevaNota')">Cancelar</button>
+      <button class="btn btn-primary" onclick="submitNuevaNota()">Guardar nota</button>
+    </div>
+  </div>
+</div>
+<script src="admin.js"></script>
+</body>
+</html>

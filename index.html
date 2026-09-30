@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CaribePlanners — Wedding Planners en el Caribe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ================= LANDING PÚBLICA ================= -->
+<div id="landingView">
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="caribeplanners.png" alt="CaribePlanners" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+        <span class="nav-logo-text" style="display:none">Caribe<span>Planners</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre nosotros</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#actividades">Qué hacemos</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-btn primary" onclick="goToAuth()">Iniciar sesión</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg">
+      <img src="hero.jpg" alt="Boda en el Caribe" onerror="this.style.display='none'">
+    </div>
+    <span class="hero-badge">✦ 28 años de experiencia en el Caribe</span>
+    <h1>Celebren su historia de amor mientras nosotros perfeccionamos cada instante</h1>
+    <p>Un equipo liderado por Wedding Planner y coordinadores especializados, cuidando cada detalle de tu evento para que tú solo te ocupes de disfrutar cada instante.</p>
+    <div class="hero-actions">
+      <button class="btn-hero" onclick="goToAuth()">Empezar a planificar</button>
+      <a href="#servicios" class="btn-hero sec">Ver servicios</a>
+    </div>
+  </header>
+
+  <!-- SOBRE NOSOTROS -->
+  <section id="sobre" class="about">
+    <div class="container">
+      <span class="section-label">Sobre nosotros</span>
+      <h2 class="section-title">Un equipo que convierte sueños en celebraciones</h2>
+      <p class="section-subtitle">Más de 28 años haciendo realidad eventos inolvidables en el Caribe.</p>
+
+      <div class="about-grid">
+        <div>
+          <p class="about-text">Estamos conformados por un equipo con más de <strong>28 años de experiencia</strong>, liderado por una Wedding Planner y coordinadores que ejercen funciones específicas dentro del desarrollo del evento.</p>
+          <p class="about-text">Nos encargamos de planificar y asegurarnos que sus peticiones se hagan realidad y que todo salga según lo planeado el día del evento, para que tanto ustedes como sus invitados disfruten de este día tan importante libres de ocupaciones, con la única premisa de vivir cada instante al máximo.</p>
+          <div class="about-stats">
+            <div class="stat-big"><div class="num">28+</div><div class="lbl">Años de experiencia</div></div>
+            <div class="stat-big"><div class="num">100%</div><div class="lbl">Eventos supervisados</div></div>
+            <div class="stat-big"><div class="num">24/7</div><div class="lbl">Acompañamiento</div></div>
+            <div class="stat-big"><div class="num">∞</div><div class="lbl">Momentos inolvidables</div></div>
+          </div>
+        </div>
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80&auto=format&fit=crop" alt="Detalle de mesa elegante" onerror="this.parentElement.style.background='var(--primary-light)'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <span class="section-label">Servicios</span>
+      <h2 class="section-title">Dos formas de acompañarte</h2>
+      <p class="section-subtitle">Desde la conceptualización hasta el último brindis del gran día.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <img class="service-img" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80&auto=format&fit=crop" alt="Asesoría" onerror="this.style.display='none'">
+          <div class="service-body">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1z"/></svg>
+            </div>
+            <h3>Asesoría</h3>
+            <p>Nos encargamos de planificar y asegurarnos que sus peticiones se hagan realidad. Los acompañaremos en la selección de proveedores, diseñando juntos la conceptualización de su evento y velando porque cada detalle esté a tiempo y en su lugar. En el gran día, estamos desde el inicio hasta su culminación, supervisando cada momento.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <img class="service-img" src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80&auto=format&fit=crop" alt="Logística" onerror="this.style.display='none'">
+          <div class="service-body">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <h3>Logística</h3>
+            <p>Acompañamiento integral en la operación del evento: selección y coordinación de proveedores, montaje, cronogramas, manejo de imprevistos y protocolo. Durante el gran día, supervisamos cada momento desde el inicio del evento hasta su culminación para que todo fluya sin contratiempos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES -->
+  <section id="actividades" class="activities">
+    <div class="container">
+      <span class="section-label">Qué hacemos por ti</span>
+      <h2 class="section-title">Cada detalle, en nuestras manos</h2>
+      <p class="section-subtitle">Todo el apoyo que recibirás con nuestro servicio de Event Planner, organizado en cinco pilares.</p>
+
+      <div class="act-grid">
+        <div class="act-card">
+          <div class="act-head">
+            <div class="act-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            </div>
+            <span class="act-title">Planificación estratégica</span>
+          </div>
+          <ul class="act-list">
+            <li>Asesoría desde el momento cero y durante los meses previos al evento.</li>
+            <li>Elaboración del cronograma del día (timeline) desde el inicio hasta la culminación.</li>
+            <li>Solución a imprevistos.</li>
+          </ul>
+        </div>
+
+        <div class="act-card">
+          <div class="act-head">
+            <div class="act-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11a7 7 0 0114 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            </div>
+            <span class="act-title">Locación y proveedores</span>
+          </div>
+          <ul class="act-list">
+            <li>Elección de la locación ideal.</li>
+            <li>Selección de proveedores según sus gustos y presupuesto.</li>
+            <li>Gestión de catering, mobiliario, decoración, papelería, flores, foto, video, DJ, música, iluminación, planta eléctrica, personal y traslados.</li>
+            <li>Reuniones operativas y supervisión de tiempos de entrega.</li>
+          </ul>
+        </div>
+
+        <div class="act-card">
+          <div class="act-head">
+            <div class="act-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+            </div>
+            <span class="act-title">Presupuesto y contratos</span>
+          </div>
+          <ul class="act-list">
+            <li>Optimización de la inversión.</li>
+            <li>Supervisión del presupuesto y contratos de cada proveedor.</li>
+            <li>Calendario de pagos diseñado a su medida.</li>
+            <li>Seguimiento de actualizaciones de presupuesto y diseño.</li>
+          </ul>
+        </div>
+
+        <div class="act-card">
+          <div class="act-head">
+            <div class="act-icon">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><circle cx="17" cy="9" r="2.5"/><path d="M15 20c0-2.5 1.5-4.5 4-4.5"/></svg>
+            </div>
+            <span class="act-title">Invitados y experiencia</span>
+          </div>
+          <ul class="act-list">
+            <li>Manejo de lista de invitados y confirmaciones.</li>
+            <li>Gestión de boletería.</li>
+            <li>Hospedaje y traslados.</li>
+            <li>Todo requerimiento para sus invitados.</li>
+          </ul>
+        </div>
+
+        <div class="act-card">
+          <div class="act-head">
+            <div class="act-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.7 7.1 18.2 8 12.7 4 8.8l5.5-.8z"/></svg>
+            </div>
+            <span class="act-title">Día del evento</span>
+          </div>
+          <ul class="act-list">
+            <li>Coordinación de proveedores en el espacio de la celebración.</li>
+            <li>Coordinación del montaje y preparativos del día.</li>
+            <li>Protocolo de iglesia y durante la celebración, hasta la finalización.</li>
+            <li>Seguimiento del cronograma previsto.</li>
+            <li>Asistencia a invitados.</li>
+            <li>Acompañamiento durante todo el día del evento.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="cta-final">
+      <div class="cta-bg">
+        <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=80&auto=format&fit=crop" alt="Playa caribeña" onerror="this.style.display='none'">
+      </div>
+      <h2>Tu boda, en las mejores manos</h2>
+      <p>Regístrate gratis en nuestra plataforma y empieza a organizar tu evento con las herramientas que usan nuestros planners.</p>
+      <button class="btn-hero" onclick="goToAuth()">Cotizar</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-logo">Caribe<span>Planners</span></div>
+    <p>© 2026 CaribePlanners. Más de 28 años creando celebraciones inolvidables en el Caribe.</p>
+  </footer>
+</div>
+
+<!-- ================= LOGIN / REGISTRO ================= -->
+<div id="authView" class="auth-wrap hidden">
+  <div class="auth-card">
+    <div class="brand-logo">
+      <img src="caribeplanners.png" alt="CaribePlanners" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div class="fb" style="display:none">Caribe<span>Planners</span></div>
+    </div>
+    <p class="tagline">Tu espacio privado de planificación</p>
+
+    <div class="tabs">
+      <button id="tabLogin" class="active" type="button" onclick="switchTab('login')">Iniciar sesión</button>
+      <button id="tabReg" type="button" onclick="switchTab('register')">Crear cuenta</button>
+    </div>
+
+    <div id="errBox" class="err"></div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input type="email" id="logEmail" required placeholder="tu@correo.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="logPass" required placeholder="••••••••" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+    </form>
+
+    <form id="regForm" class="hidden">
+      <div class="socials">
+        <button type="button" class="btn-soc" id="gBtn">
+          <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 18.9 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34.1 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.3 0-9.7-3.1-11.3-7.6l-6.5 5C9.6 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C36.9 39.2 44 34 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>
+          Continuar con Google
+        </button>
+        <button type="button" class="btn-soc apple" id="aBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+          Continuar con Apple
+        </button>
+      </div>
+      <div class="divider">o con email</div>
+      <div class="field">
+        <label>Nombre completo</label>
+        <input type="text" id="regName" required placeholder="Ana y Carlos" autocomplete="name">
+      </div>
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input type="email" id="regEmail" required placeholder="tu@correo.com" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <input type="password" id="regPass" required minlength="6" placeholder="Mínimo 6 caracteres" autocomplete="new-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Crear cuenta</button>
+    </form>
+
+    <p class="hint">
+      <strong>Demo pareja:</strong><br>
+      <code>pareja@caribeplanners.com</code> · <code>pareja123</code>
+      <button class="demo" type="button" onclick="quickLogin('pareja@caribeplanners.com','pareja123')">Entrar</button>
+    </p>
+    <a class="back-link" onclick="showLanding()">← Volver al inicio</a>
+  </div>
+</div>
+
+<!-- ================= DASHBOARD PAREJA ================= -->
+<div id="appView" class="shell hidden">
+  <aside class="side">
+    <img src="caribeplanners.png" alt="CaribePlanners" class="side-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <div style="display:none;font-size:18px;font-weight:600;text-align:center;margin-bottom:20px;letter-spacing:-.02em">Caribe<span style="color:var(--primary-dark)">Planners</span></div>
+
+    <div class="side-user">
+      <div class="n" id="uName">—</div>
+      <div class="e" id="uEmail">—</div>
+      <span class="r" id="uRole">—</span>
+    </div>
+
+    <ul class="nav-dash" id="navList"></ul>
+
+    <button class="btn btn-secondary btn-block btn-sm" onclick="logout()">Cerrar sesión</button>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <h1 id="pgTitle">—</h1>
+      <span class="user" id="topbarUser">—</span>
+    </div>
+
+    <!-- VISTA: INICIO -->
+    <section id="v-inicio" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Panel de planificación</span>
+        <h1>¡Bienvenidos!</h1>
+        <p>Aquí tienen todas sus herramientas en un solo lugar.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="l">Tareas pendientes</div><div class="v" id="sTasks">0</div></div>
+        <div class="stat"><div class="l">Invitados</div><div class="v" id="sGuests">0</div></div>
+        <div class="stat"><div class="l">Confirmados</div><div class="v accent" id="sConf">0</div></div>
+        <div class="stat"><div class="l">Presupuesto</div><div class="v" id="sBudget">$0</div></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Herramientas destacadas</h2>
+        </div>
+        <div class="tools-grid" id="toolsGrid"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Datos de la boda</h2>
+        </div>
+        <div id="wedInfo" class="empty">Todavía no han completado los datos.</div>
+        <form id="wedForm" class="form-grid cols-2" style="margin-top:16px">
+          <div class="field">
+            <label>Novio/a 1</label>
+            <input id="wA" required>
+          </div>
+          <div class="field">
+            <label>Novio/a 2</label>
+            <input id="wB" required>
+          </div>
+          <div class="field">
+            <label>Fecha</label>
+            <input type="date" id="wDate" required>
+          </div>
+          <div class="field">
+            <label>Lugar</label>
+            <input id="wLoc" required placeholder="Cartagena, Colombia">
+          </div>
+          <button type="submit" class="btn btn-primary" style="grid-column:1/-1">Guardar datos</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VISTA: TAREAS -->
+    <section id="v-tareas" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Organización</span>
+        <h1>Tareas</h1>
+        <p>Organicen lo que falta por hacer</p>
+      </div>
+      <div class="card">
+        <form class="filters" id="taskForm" style="margin-bottom:20px">
+          <input id="newTask" placeholder="Agregar nueva tarea..." required style="flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <button class="btn btn-primary">Agregar</button>
+        </form>
+        <div id="taskList"></div>
+      </div>
+    </section>
+
+    <!-- VISTA: INVITADOS -->
+    <section id="v-invitados" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Lista</span>
+        <h1>Invitados</h1>
+        <p>Lista y confirmaciones en tiempo real</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2>Invitados <span class="sub" id="guestCount">0</span></h2>
+          <button class="btn-csv" onclick="exportInvitadosCSV()">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+            Exportar CSV
+          </button>
+        </div>
+        <form class="filters" id="guestForm" style="margin-bottom:20px">
+          <input id="gName" placeholder="Nombre" required style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <input id="gEmail" type="email" placeholder="Correo (opcional)" style="flex:1;min-width:180px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <button class="btn btn-primary">Agregar</button>
+        </form>
+        <table class="tbl" id="guestTbl">
+          <thead><tr><th>Nombre</th><th>Correo</th><th>RSVP</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VISTA: PRESUPUESTO -->
+    <section id="v-presupuesto" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Finanzas</span>
+        <h1>Presupuesto</h1>
+        <p>Control de gastos y estado de pagos</p>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2>Presupuesto <span class="sub" id="budgetCount">0</span></h2>
+          <button class="btn-csv" onclick="exportPresupuestoCSV()">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+            Exportar CSV
+          </button>
+        </div>
+        <form class="filters" id="budgetForm" style="margin-bottom:20px">
+          <input id="bConcept" placeholder="Concepto" required style="flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <input id="bAmount" type="number" min="0" step="0.01" placeholder="Monto" required style="min-width:120px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <button class="btn btn-primary">Agregar</button>
+        </form>
+        <table class="tbl" id="budgetTbl">
+          <thead><tr><th>Concepto</th><th>Monto</th><th>Estado</th><th></th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- VISTA: PROVEEDORES -->
+    <section id="v-proveedores" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Control de servicios</span>
+        <h1>Proveedores</h1>
+        <p>Gestión de proveedores y estado de pagos</p>
+      </div>
+
+      <div id="provSummaryHome"></div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>Lista de proveedores <span class="sub" id="provCount">0</span></h2>
+          <div class="flex gap-8">
+            <button class="btn-csv" onclick="exportProveedoresCSV()">
+              <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/></svg>
+              Exportar CSV
+            </button>
+            <button class="btn-nuevo" onclick="openNuevoProveedorHome()">
+              <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+              Nuevo proveedor
+            </button>
+          </div>
+        </div>
+
+        <div class="filters" style="margin-bottom:16px">
+          <select class="filter-select" id="filterProvCatHome" onchange="renderProveedoresHome()">
+            <option value="all">Todas las categorías</option>
+          </select>
+          <select class="filter-select" id="filterProvStatusHome" onchange="renderProveedoresHome()">
+            <option value="all">Todos los estados</option>
+            <option value="sin_iniciar">Sin iniciar</option>
+            <option value="en_curso">En curso</option>
+            <option value="pagado">Pagado</option>
+          </select>
+        </div>
+
+        <div id="provListHome"></div>
+      </div>
+    </section>
+
+    <!-- VISTA: MESAS -->
+    <section id="v-mesas" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Distribución</span>
+        <h1>Plano de mesas</h1>
+        <p>Asignen cada invitado a una mesa</p>
+      </div>
+      <div class="card">
+        <form class="filters" id="tableForm" style="margin-bottom:20px">
+          <input id="mName" placeholder="Nombre de mesa (ej. Mesa 1)" required style="flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <button class="btn btn-primary">Agregar mesa</button>
+        </form>
+        <div id="tablesWrap" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px"></div>
+      </div>
+    </section>
+
+    <!-- VISTA: CRONOGRAMA -->
+    <section id="v-cronograma" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Programa</span>
+        <h1>Cronograma</h1>
+        <p>Programa del día de la boda</p>
+      </div>
+      <div class="card">
+        <form class="filters" id="cronForm" style="margin-bottom:20px">
+          <input id="cronTime" type="time" required style="max-width:140px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <input id="cronWhat" placeholder="Actividad (ej. Ceremonia)" required style="flex:1;min-width:200px;padding:10px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:14px;background:var(--bg);color:var(--text)">
+          <button class="btn btn-primary">Agregar</button>
+        </form>
+        <div id="cronList"></div>
+      </div>
+    </section>
+
+    <!-- VISTA: WEB -->
+    <section id="v-web" class="page hidden">
+      <div class="page-header">
+        <span class="kicker">Presencia digital</span>
+        <h1>Web de boda</h1>
+        <p>Su web pública personalizada</p>
+      </div>
+      <div class="card">
+        <h2 style="margin-bottom:16px">Su URL pública</h2>
+        <p style="color:var(--text-sec);font-size:14px;margin-bottom:14px">Su web pública estará disponible en:</p>
+        <div style="background:var(--bg-alt);padding:14px;border-radius:8px;font-family:monospace;font-size:14px;word-break:break-all" id="wedUrl">caribeplanners.com/boda/—</div>
+        <p style="color:var(--text-ter);font-size:13px;margin-top:14px">En producción cada pareja tendría su web pública real con RSVP y galería.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ================= DRAWER: PROVEEDOR ================= -->
+<div class="drawer-backdrop" id="provDrawerBackdrop" onclick="closeProvDrawer()"></div>
+<div class="drawer" id="provDrawer">
+  <div class="drawer-head">
+    <div class="drawer-head-info">
+      <h2 id="pvdTitle">—</h2>
+      <div class="meta">
+        <span id="pvdCat">—</span>
+        <span class="dot"></span>
+        <span id="pvdStatus">—</span>
+      </div>
+    </div>
+    <button class="modal-close" onclick="closeProvDrawer()">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="drawer-tabs" id="pvdTabs">
+    <button class="drawer-tab active" data-tab="datos" onclick="switchProvTab('datos')">Datos</button>
+    <button class="drawer-tab" data-tab="abonos" onclick="switchProvTab('abonos')">Abonos</button>
+    <button class="drawer-tab" data-tab="adjuntos" onclick="switchProvTab('adjuntos')">Comprobantes</button>
+    <button class="drawer-tab" data-tab="notas" onclick="switchProvTab('notas')">Notas</button>
+  </div>
+  <div class="drawer-body" id="pvdBody"></div>
+  <div class="drawer-footer">
+    <button class="btn btn-secondary" onclick="closeProvDrawer()">Cerrar</button>
+    <button class="btn btn-primary" onclick="saveProvChanges()">Guardar cambios</button>
+  </div>
+</div>
+
+<!-- ================= MODAL: NUEVO PROVEEDOR ================= -->
+<div class="modal-backdrop" id="modalNuevoProveedor">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Agregar proveedor</h2>
+      <button class="modal-close" onclick="closeModal('modalNuevoProveedor')">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="formNuevoProveedor" class="form-grid cols-2">
+        <div class="field full">
+          <label>Nombre del proveedor</label>
+          <input type="text" id="nprovNombre" required placeholder="Ej: Juan Pérez">
+        </div>
+        <div class="field">
+          <label>Categoría</label>
+          <select id="nprovCat" required></select>
+        </div>
+        <div class="field">
+          <label>Monto del servicio</label>
+          <input type="number" id="nprovMonto" min="0" step="0.01" required placeholder="0.00">
+        </div>
+        <div class="field full">
+          <label>Alcance / Detalles</label>
+          <textarea id="nprovDetalles" rows="3" placeholder="Describe qué incluye el servicio..." style="resize:vertical"></textarea>
+        </div>
+        <div class="field">
+          <label>Fecha de contratación</label>
+          <input type="date" id="nprovFecha">
+        </div>
+        <div class="field">
+          <label>Fecha de pago final</label>
+          <input type="date" id="nprovFechaFinal">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modalNuevoProveedor')">Cancelar</button>
+      <button class="btn btn-primary" onclick="submitNuevoProveedorHome()">Agregar proveedor</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL: REGISTRAR ABONO ================= -->
+<div class="modal-backdrop" id="modalAbono">
+  <div class="modal" style="max-width:440px">
+    <div class="modal-header">
+      <h2>Registrar abono</h2>
+      <button class="modal-close" onclick="closeModal('modalAbono')">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form id="formAbono" class="form-grid">
+        <div class="field">
+          <label>Monto del abono</label>
+          <input type="number" id="abonoMonto" min="0.01" step="0.01" required placeholder="0.00">
+        </div>
+        <div class="field">
+          <label>Fecha del abono</label>
+          <input type="date" id="abonoFecha" required>
+        </div>
+        <div class="field">
+          <label>Nota (opcional)</label>
+          <input type="text" id="abonoNota" placeholder="Ej: Primer anticipo">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modalAbono')">Cancelar</button>
+      <button class="btn btn-primary" onclick="submitAbono()">Registrar abono</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= INPUT OCULTO PARA ADJUNTOS ================= -->
+<input type="file" id="fileInputAdjunto" style="display:none" accept="image/*,.pdf" onchange="handleAdjuntoSelected(event)">
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
